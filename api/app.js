@@ -28,10 +28,10 @@ app.use((req, res, next) => {
 });
 
 app.use(cors({
-  origin: '*',
-  //origin: 'https://monitoringsepedateluapp.my.id', // Pastikan ini benar
+  origin: 'https://sehat.teluapp.org/elliptical-trainer/', // Pastikan ini benar
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
 }));
 
 app.get("/", (_, res) => res.send("API is running..."));
