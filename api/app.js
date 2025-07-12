@@ -28,10 +28,9 @@ app.use((req, res, next) => {
 });
 
 app.use(cors({
-  origin: 'https://sehat.teluapp.org',  // Ganti dengan domain frontend Anda
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,  // Jika Anda menggunakan cookies atau sesi
 }));
 
 app.get("/", (_, res) => res.send("API is running..."));
