@@ -6,12 +6,6 @@ dotenv.config();
 let pool;
 
 const connectDB = async () => {
-  // Memeriksa apakah pool sudah ada untuk menghindari pembuatan koneksi baru setiap request
-  if (pool) {
-    console.log('✅ Reusing MySQL Pool');
-    return pool;
-  }
-
   try {
     pool = await mysql.createPool({
       host: process.env.DB_HOST,
@@ -23,10 +17,9 @@ const connectDB = async () => {
       queueLimit: 0
     });
     console.log('✅ MySQL Connected!');
-    return pool;
   } catch (err) {
     console.error('❌ MySQL Connection Error:', err);
-    process.exit(1);  // Menghentikan aplikasi jika koneksi gagal
+    process.exit(1);
   }
 };
 
