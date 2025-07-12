@@ -27,7 +27,6 @@ app.use('/sessions', sessionRoutes);
 app.use('/scan', scanRoutes);
 app.get('/', (_, res) => res.send('API is running...'));
 
-// ✅ Jangan pakai app.listen() di Vercel!
 // module.exports = app;
 
 const serverless = require('serverless-http');
