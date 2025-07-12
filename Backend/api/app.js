@@ -41,9 +41,9 @@ app.use('/users', userRoutes);
 app.use('/sessions', sessionRoutes);
 app.use('/scan', scanRoutes);
 
-const PORT = process.env.PORT || 3210;
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`✅ Server running on http://0.0.0.0:${PORT}`);
-});
+// const PORT = process.env.PORT || 3210;
+// app.listen(PORT, '0.0.0.0', () => {
+//   console.log(`✅ Server running on http://0.0.0.0:${PORT}`);
+// });
 
 module.exports = app;
