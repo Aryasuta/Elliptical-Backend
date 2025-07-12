@@ -31,4 +31,4 @@ app.get('/', (_, res) => res.send('API is running...'));
 // module.exports = app;
 
 const serverless = require('serverless-http');
-module.exports.handler = serverless(app); // ✅ export sesuai dengan Vercel requirement
+module.exports.handler = serverless(app); // 
