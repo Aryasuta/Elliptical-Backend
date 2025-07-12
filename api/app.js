@@ -14,8 +14,7 @@ const app = express();
 const path = require('path');
 
 // ✅ Serving static files (HTML, CSS, JS)
-app.use(express.static(path.join(__dirname, '../frontend/public')));  // ✅ Tambahkan ini
-
+app.use(express.static(path.join(__dirname, '../frontend/public')));
 app.use(express.json());
 
 app.use((req, res, next) => {
@@ -41,9 +40,12 @@ app.use('/users', userRoutes);
 app.use('/sessions', sessionRoutes);
 app.use('/scan', scanRoutes);
 
+const serverless = require('serverless-http');
+module.exports.handler = serverless(app);
+
 // const PORT = process.env.PORT || 3210;
 // app.listen(PORT, '0.0.0.0', () => {
 //   console.log(`✅ Server running on http://0.0.0.0:${PORT}`);
 // });
 
-module.exports = app;
+// module.exports = app;
