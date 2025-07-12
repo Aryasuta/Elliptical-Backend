@@ -27,10 +27,5 @@ app.use('/sessions', sessionRoutes);
 app.use('/scan', scanRoutes);
 app.get('/', (_, res) => res.send('API is running...'));
 
-const handler = async (req, res) => {
-  await connectDB();
-  return app(req, res);  // butuh penyesuaian di sini jika ingin full async handler
-};
-
-// module.exports = app;
-module.exports.handler = serverless(app); //setup
+// Export handler for serverless
+module.exports.handler = serverless(app);  // This is the serverless handler
