@@ -35,6 +35,39 @@ app.use(cors({
 
 app.get("/", (_, res) => res.send("API is running..."));
 
+// POST endpoint untuk menerima data dari frontend
+app.post('/users', async (req, res) => {
+  const { cardId, name, weight, gender } = req.body;
+
+  // Validasi data yang diperlukan
+  if (!cardId || !name || !weight || !gender) {
+    return res.status(400).json({ message: 'All fields are required' });
+  }
+
+  try {
+    // Logika untuk menyimpan data pengguna
+    const newUser = {
+      cardId,
+      name,
+      weight,
+      gender
+    };
+
+    // Anda bisa menggantinya dengan logika penyimpanan ke database
+    // Misalnya, UserModel.createUser(newUser);
+    
+    console.log('New User Registered:', newUser);
+
+    return res.status(201).json({
+      message: 'User created successfully',
+      newUser
+    });
+  } catch (err) {
+    console.error('Error during user creation:', err);
+    return res.status(500).json({ message: 'Failed to create user' });
+  }
+});
+
 app.use('/users', userRoutes);
 app.use('/sessions', sessionRoutes);
 app.use('/scan', scanRoutes);
