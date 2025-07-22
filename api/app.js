@@ -13,7 +13,7 @@ connectDB();
 const app = express();
 
 // ✅ Serving static files (HTML, CSS, JS)
-app.use(express.static(path.join(__dirname, 'public'))); // ✅ Tambahkan ini
+app.use(express.static('public'));  // ✅ Tambahkan ini
 
 app.use(express.json());
 
