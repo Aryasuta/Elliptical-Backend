@@ -9,7 +9,7 @@
     { "src": "/(.*)", "dest": "api/app.js" }
 ],
 "headers": [
-    {
+    { 
     "source": "/scan/(.*)",
     "headers": [
         {
