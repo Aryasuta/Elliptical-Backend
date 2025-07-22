@@ -29,7 +29,6 @@ app.use((req, res, next) => {
 
 app.use(cors({
   origin: 'https://sehat.teluapp.org',
-  //origin: 'https://monitoringsepedateluapp.my.id', // Pastikan ini benar
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
