@@ -1,47 +1,11 @@
 {
-"version": 2,
-"builds": [
+    "version": 2,
+    "builds": [
     { "src": "api/app.js", "use": "@vercel/node" }
 ],
-"routes": [
+    "routes": [
     { "src": "/scan/(.*)", "dest": "api/app.js" },
     { "src": "/sessions/(.*)", "dest": "api/app.js" },
     { "src": "/(.*)", "dest": "api/app.js" }
-],
-"headers": [
-    { 
-    "source": "/scan/(.*)",
-    "headers": [
-        {
-        "key": "Access-Control-Allow-Origin",
-        "value": "https://sehat.teluapp.org"  
-        },
-        {
-        "key": "Access-Control-Allow-Methods",
-        "value": "GET, POST, PUT, DELETE"
-        },
-        {
-        "key": "Access-Control-Allow-Headers",
-        "value": "Content-Type, Authorization"
-        }
-    ]
-    },
-    {
-    "source": "/sessions/(.*)",
-    "headers": [
-        {
-        "key": "Access-Control-Allow-Origin",
-        "value": "https://sehat.teluapp.org"
-        },
-        {
-        "key": "Access-Control-Allow-Methods",
-        "value": "GET, POST, PUT, DELETE"
-        },
-        {
-        "key": "Access-Control-Allow-Headers",
-        "value": "Content-Type, Authorization"
-        }
-    ]
-    }
 ]
 }
