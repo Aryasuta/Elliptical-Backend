@@ -1,11 +1,13 @@
 {
-    "version": 2,
-    "builds": [
-    { "src": "api/app.js", "use": "@vercel/node" }
-],
-    "routes": [
-    { "src": "/scan/(.*)", "dest": "api/app.js" },
-    { "src": "/sessions/(.*)", "dest": "api/app.js" },
-    { "src": "/(.*)", "dest": "api/app.js" }
-]
+  "version": 2,
+  "builds": [
+    { "src": "api/**/*.js", "use": "@vercel/node" }, 
+    { "src": "public/**/*", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/api/scan/(.*)", "dest": "/api/scanRoutes.js" }, 
+    { "src": "/api/sessions/(.*)", "dest": "/api/sessionRoutes.js" }, 
+    { "src": "/api/users/(.*)", "dest": "/api/userRoutes.js" }, 
+    { "src": "/(.*)", "dest": "/public/$1" } 
+  ]
 }
