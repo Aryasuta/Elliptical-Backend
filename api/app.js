@@ -28,7 +28,7 @@ app.use((req, res, next) => {
 });
 
 app.use(cors({
-  origin: 'https://elliptical-trainer.vercel.app',
+  origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
